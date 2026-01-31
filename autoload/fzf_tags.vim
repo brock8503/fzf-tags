@@ -77,7 +77,7 @@ endfunction
 function! s:tag_to_string(index, tag_dict)
   let components = [a:index + 1]
   if has_key(a:tag_dict, 'filename')
-    call add(components, s:magenta(a:tag_dict['filename']))
+    call add(components, s:magenta(fnamemodify(a:tag_dict['filename'], ':t')))
   endif
   if has_key(a:tag_dict, 'class')
     call add(components, s:green(a:tag_dict['class']))
